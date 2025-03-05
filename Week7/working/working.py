@@ -11,8 +11,10 @@ def convert(s):
     ):
         st_hour, st_min, st_ap, ed_hour, ed_min, ed_ap = match.groups()
 
-        if st_min is None and ed_min is None:
-            st_min, ed_min = 0, 0
+        if st_min is None:
+            st_min = 0
+        if ed_min is None:
+            ed_min = 0
         st_hour, st_min, ed_hour, ed_min = map(int, [st_hour, st_min, ed_hour, ed_min])
 
         if st_ap == "PM" and st_hour != 12:
